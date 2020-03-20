@@ -34,16 +34,6 @@ class UserServiceTest {
         assertEquals("Demo xxx", userDomain.getName());
     }
 
-    @Test
-    void not_found_getData_by_id_1() {
-        try {
-            UserService userService = new UserService();
-            userService.setRepository(userRepository);
-            userService.getData(1);
-            fail();
-        } catch(Exception e) {
-
-        }
-    }
+    
 }
 
