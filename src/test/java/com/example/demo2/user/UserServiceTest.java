@@ -30,10 +30,10 @@ class UserServiceTest {
         userService.setRepository(userRepository);
         UserDomain userDomain = userService.getData(1);
 
-        assertEquals(1, userDomain.getId());
-        assertEquals("Demo xxx", userDomain.getName());
+        assertEquals(2, userDomain.getId());
+        assertEquals("Demo xxxyyy", userDomain.getName());
     }
 
-    
+
 }
 
