@@ -1,6 +1,11 @@
-# demo-spring-testing
+# Demo Spring Boot Testing
 
-How to run ? 
+Run test
 ```
 $gradlew clean test
+```
+
+Start dev server
+```
+$gradlew bootRun
 ```
