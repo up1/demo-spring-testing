@@ -25,7 +25,8 @@ public class PostGateway {
         String url = String.format("%s/posts/%d", postApiUrl, id);
 
         try {
-            return Optional.ofNullable(restTemplate.getForObject(url, PostResponse.class));
+            return Optional.ofNullable(
+                    restTemplate.getForObject(url, PostResponse.class));
         } catch (RestClientException e) {
             return Optional.empty();
         }

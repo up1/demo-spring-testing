@@ -1,5 +1,6 @@
 package com.example.demo2.user;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -12,13 +13,25 @@ import static org.mockito.BDDMockito.given;
 
 
 @ExtendWith(MockitoExtension.class)
-class UserServiceTest {
+public class UserServiceTest {
 
     @Mock
     private UserRepository userRepository;
 
     @Test
-    void found_getData_by_id_1() {
+    public void user_not_found_with_exception() {
+        given(userRepository.findById(1))
+                .willReturn(Optional.empty());
+        UserService userService = new UserService();
+        userService.setRepository(userRepository);
+
+        Assertions.assertThrows(RuntimeException.class, () -> {
+            userService.getData(1);
+        });
+    }
+
+    @Test
+    public void found_getData_by_id_1() {
         User user = new User();
         user.setId(1);
         user.setFname("Demo");
